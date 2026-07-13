@@ -1,0 +1,28 @@
+---
+/** Recipe: PRESS — 3-up mention cards: outlet, headline, date. Text only,
+ *  no logo wrangling. */
+import SectionHeader from "../SectionHeader.astro";
+import { site } from "../../data/site";
+const { press } = site;
+---
+
+{press && (
+  <section class="section container" id="press">
+    <SectionHeader eyebrow={press.eyebrow} title={press.title} />
+    <div class="grid12">
+      {press.items.map((p) => (
+        <a class="card card-pad col-4 mention reveal" href={p.href} rel="noopener">
+          <p class="mention-outlet t-eyebrow">{p.outlet}</p>
+          <h3 class="mention-headline">“{p.headline}”</h3>
+          <time class="mention-date">{p.date}</time>
+        </a>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .mention { display: flex; flex-direction: column; gap: 0.8rem; }
+  .mention-headline { font-size: 1.1rem; font-weight: 700; line-height: 1.4; flex: 1; }
+  .mention-date { font-size: 0.75rem; color: var(--text-mute); }
+</style>

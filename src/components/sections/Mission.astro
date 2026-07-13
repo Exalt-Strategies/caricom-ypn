@@ -1,0 +1,48 @@
+---
+/** Recipe: SPLIT (8+4) — wide text card + stacked aside cards. */
+import SectionHeader from "../SectionHeader.astro";
+import { site } from "../../data/site";
+const { mission } = site;
+---
+
+{mission && (
+  <section class="section container" id="mission">
+    <div class="grid12">
+      <div class="card card-pad col-8 mission-body reveal">
+        <SectionHeader eyebrow={mission.eyebrow} title={mission.title} align="start" />
+        {mission.body.map((p) => <p>{p}</p>)}
+      </div>
+      <aside class="col-4 mission-aside">
+        {mission.asides.map((a) => (
+          <blockquote class="card card-pad quote reveal">
+            <p>{a.quote}</p>
+            <cite>{a.attr}</cite>
+          </blockquote>
+        ))}
+      </aside>
+    </div>
+    <figure class="mission-photo reveal">
+      <img src="/img/caribbean.jpg" alt="A Caribbean shoreline: palms, turquoise water and a sailboat off the coast" loading="lazy" width="736" height="552" />
+    </figure>
+  </section>
+)}
+
+<style>
+  .mission-body p { color: var(--text-mute); font-size: 1.08rem; line-height: 1.8; margin-bottom: 1.15rem; }
+  .mission-body p:last-child { margin-bottom: 0; }
+  .mission-aside { display: flex; flex-direction: column; gap: var(--gutter); }
+  .quote { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .quote p { font-weight: 600; font-size: 1.08rem; line-height: 1.5; }
+  .quote cite { margin-top: 1rem; font-style: normal; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-mute); }
+
+  /* Beach vibes — a thick clashing-framed banner under the vision text. */
+  .mission-photo {
+    margin-top: var(--gutter);
+    border: var(--border-photo) solid var(--frame, var(--cobalt));
+    border-radius: var(--radius-photo);
+    overflow: hidden;
+    aspect-ratio: 16 / 6;
+  }
+  .mission-photo img { width: 100%; height: 100%; object-fit: cover; }
+  @media (max-width: 640px) { .mission-photo { aspect-ratio: 3 / 2; } }
+</style>

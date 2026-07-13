@@ -1,0 +1,194 @@
+/* =====================================================================
+   LAYOUT PRIMITIVES — the card grammar, dressed in the CARICOM
+   sticker-poster style. Reads tokens.css only.
+   Anatomy: black page → poster (section) → inner cards → photo frames,
+   every adjacent layer a clashing token, thick black keylines, flat fills.
+   ===================================================================== */
+@import "./tokens.css";
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-ui);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.4;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+img, svg, canvas { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 4px; }
+
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 200;
+  background: var(--ink); color: var(--paper); padding: 0.6rem 1rem;
+  border-radius: 0 0 12px 0; font-weight: 800;
+}
+.skip-link:focus { left: 0; }
+
+/* ---- Container (Nav / Hero / Ticker / Footer) ------------------------ */
+.container { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: var(--pad-x); }
+
+/* ---- Section = one floating poster card ------------------------------
+   Overrides the .container width/margin/padding it also carries so each
+   section becomes a clashing rounded card floating on the black canvas
+   with even gutters at every width (nothing touches the edge). */
+.section {
+  width: min(var(--maxw), 100% - 2 * var(--edge));
+  max-width: none;
+  margin-inline: auto;
+  margin-block: var(--gap-stack);
+  padding: clamp(1.6rem, 3.5vw, 3rem);
+  background: var(--poster, var(--cobalt));
+  color: var(--poster-ink, var(--paper));
+  border: var(--border-card) solid var(--ink);
+  border-radius: var(--radius-outer);
+}
+
+/* Per-section poster palette rotation. Each row sets: the poster backdrop,
+   its text color, the inner card fill + its text, and two clashing frame
+   colors. Adjacent rows never share a hue family. */
+/* Cobalt lands last in the cycle so it never sits under the cobalt hero. */
+main > section:nth-of-type(8n + 1) { --poster: var(--acid-lime);   --poster-ink: var(--ink);   --card-fill: var(--lavender);   --card-ink: var(--ink); --frame: var(--cobalt);      --frame-2: var(--orchid); }
+main > section:nth-of-type(8n + 2) { --poster: var(--orchid);      --poster-ink: var(--ink);   --card-fill: var(--spring-mint);--card-ink: var(--ink); --frame: var(--cobalt);      --frame-2: var(--lemon); }
+main > section:nth-of-type(8n + 3) { --poster: var(--spring-mint); --poster-ink: var(--ink);   --card-fill: var(--coral);      --card-ink: var(--ink); --frame: var(--cobalt);      --frame-2: var(--lemon); }
+main > section:nth-of-type(8n + 4) { --poster: var(--lemon);       --poster-ink: var(--ink);   --card-fill: var(--orchid);     --card-ink: var(--ink); --frame: var(--kelly-green); --frame-2: var(--cobalt); }
+main > section:nth-of-type(8n + 5) { --poster: var(--lavender);    --poster-ink: var(--ink);   --card-fill: var(--signal-red); --card-ink: var(--ink); --frame: var(--lemon);       --frame-2: var(--cobalt); }
+main > section:nth-of-type(8n + 6) { --poster: var(--signal-red);  --poster-ink: var(--paper); --card-fill: var(--lemon);      --card-ink: var(--ink); --frame: var(--cobalt);      --frame-2: var(--spring-mint); }
+main > section:nth-of-type(8n + 7) { --poster: var(--kelly-green); --poster-ink: var(--paper); --card-fill: var(--coral);      --card-ink: var(--ink); --frame: var(--lemon);       --frame-2: var(--cobalt); }
+main > section:nth-of-type(8n + 8) { --poster: var(--cobalt);      --poster-ink: var(--paper); --card-fill: var(--lemon);      --card-ink: var(--ink); --frame: var(--signal-red);  --frame-2: var(--spring-mint); }
+
+/* ---- 12-column grid -------------------------------------------------- */
+.grid12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--gutter); }
+.col-4  { grid-column: span 4; }
+.col-6  { grid-column: span 6; }
+.col-8  { grid-column: span 8; }
+.col-12 { grid-column: span 12; }
+@media (max-width: 860px) {
+  .col-4, .col-6, .col-8 { grid-column: span 12; }
+}
+
+/* ---- Cards & panels --------------------------------------------------
+   Inner cards: clashing solid fill + thick black keyline, deeply rounded. */
+.card {
+  border-radius: var(--radius-card);
+  background: var(--card-fill, var(--paper));
+  color: var(--card-ink, var(--ink));
+  border: var(--border-card) solid var(--ink);
+  position: relative;
+}
+.card-pad { padding: clamp(1.4rem, 2.6vw, 2.2rem); }
+a.card, .card-hover { transition: transform 0.18s var(--ease); }
+a.card:hover, .card-hover:hover { transform: translate(-2px, -3px); }
+
+.panel {
+  border-radius: var(--radius-outer);
+  position: relative; isolation: isolate;
+  background: var(--card-fill, var(--signal-red));
+  color: var(--card-ink, var(--paper));
+  border: var(--border-card) solid var(--ink);
+}
+
+/* ---- Pill vocabulary — chunky, uppercase, wide-tracked --------------- */
+.pill {
+  display: inline-flex; align-items: center; gap: 0.5em;
+  font-family: var(--font-ui); font-weight: 800; font-size: 0.66rem;
+  letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap;
+  color: var(--paper); background: var(--pill-bg, var(--ink));
+  padding: 0.5rem 1rem; border-radius: 999px;
+  border: 2px solid var(--ink);
+}
+.pill-soft { --pill-bg: var(--paper); color: var(--ink); }
+
+.pill-float {
+  position: absolute; top: 1.1rem; left: 50%; transform: translateX(-50%);
+  z-index: 3; max-width: calc(100% - 2rem);
+}
+@media (max-width: 640px) { .pill-float { font-size: 0.55rem; } }
+
+.cta-row { display: flex; justify-content: center; margin-top: 2.5rem; }
+.cta-pill {
+  display: inline-block; font-family: var(--font-ui); font-weight: 800;
+  font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--paper); background: var(--ink);
+  padding: 0.9rem 1.7rem; border-radius: 999px; border: 3px solid var(--ink);
+  cursor: pointer;
+  transition: transform 0.15s var(--ease);
+}
+.cta-pill:hover { transform: translate(-2px, -3px); }
+
+/* ---- Type roles ------------------------------------------------------ */
+.t-display {
+  font-family: var(--font-display); font-weight: 800;
+  line-height: var(--headline-lh); letter-spacing: var(--headline-ls);
+}
+.t-eyebrow {
+  font-family: var(--font-ui); font-weight: 800; font-size: 0.68rem;
+  letter-spacing: 0.22em; text-transform: uppercase; color: inherit;
+}
+/* Outlined display type: bright fill + solid black stroke (callout names) */
+.t-outline {
+  color: var(--coral);
+  -webkit-text-stroke: 3px var(--ink);
+  paint-order: stroke fill;
+  font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em;
+}
+
+/* ---- Rail: horizontal scroll-snap card row --------------------------- */
+.rail {
+  display: flex; gap: var(--gutter);
+  overflow-x: auto; scroll-snap-type: x mandatory;
+  padding-bottom: 0.5rem;
+  scrollbar-width: none;
+}
+.rail::-webkit-scrollbar { display: none; }
+.rail > * { flex: 0 0 var(--rail-item-w); scroll-snap-align: start; min-width: 0; }
+
+.rail-arrows { display: flex; gap: 0.5rem; }
+.rail-arrow {
+  width: 44px; height: 44px; border-radius: 999px; display: grid; place-items: center;
+  background: var(--paper); color: var(--ink); border: 3px solid var(--ink); font-size: 1.1rem;
+  font-weight: 800;
+  transition: transform 0.15s var(--ease);
+}
+.rail-arrow:hover:not(:disabled) { transform: translate(-1px, -2px); }
+.rail-arrow:disabled { opacity: 0.35; cursor: default; }
+
+/* ---- Accordion: native details/summary as cards (zero JS) ------------ */
+.accordion { display: flex; flex-direction: column; gap: var(--gutter); }
+.accordion details {
+  border-radius: var(--radius-card); background: var(--card-fill, var(--paper));
+  color: var(--card-ink, var(--ink));
+  border: var(--border-card) solid var(--ink); overflow: hidden;
+}
+.accordion summary {
+  cursor: pointer; list-style: none; display: flex; align-items: center;
+  justify-content: space-between; gap: 1rem;
+  padding: 1.2rem 1.5rem; font-weight: 800;
+}
+.accordion summary::-webkit-details-marker { display: none; }
+.accordion summary::after {
+  content: "+"; font-size: 1.4rem; font-weight: 800; line-height: 1;
+  transition: transform 0.25s var(--ease);
+}
+.accordion details[open] summary::after { transform: rotate(45deg); }
+.accordion details > :not(summary) { padding: 0 1.5rem 1.35rem; font-weight: 500; }
+
+/* ---- Progress bar (Priorities) — the one permitted graphic element --- */
+.progress { height: 14px; border-radius: 999px; background: var(--paper); overflow: hidden; border: 2px solid var(--ink); }
+.progress > i { display: block; height: 100%; width: var(--p, 0%); background: var(--ink); }
+
+/* ---- Reveal on scroll (CSS transition; class toggled by one observer) */
+.reveal { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+  .js .reveal.is-visible { opacity: 1; transform: none; }
+}

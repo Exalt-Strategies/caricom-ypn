@@ -1,0 +1,27 @@
+---
+/** Recipe: STATS — 3-up stat cards. Text only; no charts. */
+import SectionHeader from "../SectionHeader.astro";
+import { site } from "../../data/site";
+const { stats } = site;
+---
+
+{stats && (
+  <section class="section container" id="stats">
+    <SectionHeader eyebrow={stats.eyebrow} title={stats.title} />
+    <div class="grid12">
+      {stats.items.map((s) => (
+        <div class="card card-pad col-4 stat reveal">
+          <div class="stat-num t-display">{s.num}</div>
+          <div class="stat-label t-eyebrow">{s.label}</div>
+          <p class="stat-note">{s.note}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .stat-num { font-size: 2.8rem; }
+  .stat-label { margin: 0.6rem 0 0.5rem; }
+  .stat-note { color: var(--text-mute); font-size: 0.92rem; line-height: 1.55; }
+</style>

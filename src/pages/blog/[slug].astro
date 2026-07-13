@@ -1,0 +1,39 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { formatDate } from "../../lib/format";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+const { post } = Astro.props as { post: CollectionEntry<"blog"> };
+const { Content } = await post.render();
+---
+
+<BaseLayout title={post.data.title} description={post.data.excerpt}>
+  <article class="section container article">
+    <div class="card card-pad article-card">
+      <div class="article-meta">
+        <span class="pill pill-soft">{post.data.tag}</span>
+        <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+      </div>
+      <h1 class="t-display article-title">{post.data.title}</h1>
+      <div class="prose">
+        <Content />
+      </div>
+      <a class="cta-pill article-back" href="/blog">← All posts</a>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .article-card { max-width: 820px; margin-inline: auto; }
+  .article-meta { display: flex; align-items: center; gap: 1rem; }
+  .article-meta time { font-size: 0.8rem; color: var(--text-mute); }
+  .article-title { font-size: clamp(1.8rem, 3.5vw, 2.8rem); margin: 1rem 0 1.5rem; }
+  .prose :global(p) { color: var(--text-mute); line-height: 1.8; margin-bottom: 1.1rem; }
+  .prose :global(h2) { font-size: 1.2rem; margin: 1.75rem 0 0.75rem; }
+  .article-back { margin-top: 1.5rem; display: inline-block; }
+</style>

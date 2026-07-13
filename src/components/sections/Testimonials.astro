@@ -1,0 +1,26 @@
+---
+/** Recipe: TESTIMONIALS — 3-up quote cards. Just words. */
+import SectionHeader from "../SectionHeader.astro";
+import { site } from "../../data/site";
+const { testimonials } = site;
+---
+
+{testimonials && (
+  <section class="section container" id="testimonials">
+    <SectionHeader eyebrow={testimonials.eyebrow} title={testimonials.title} />
+    <div class="grid12">
+      {testimonials.items.map((t) => (
+        <blockquote class="card card-pad col-4 tsm reveal">
+          <p class="tsm-quote">“{t.quote}”</p>
+          <cite class="tsm-attr">{t.attr}</cite>
+        </blockquote>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .tsm { display: flex; flex-direction: column; gap: 1rem; }
+  .tsm-quote { font-weight: 600; font-size: 1.05rem; line-height: 1.55; flex: 1; }
+  .tsm-attr { font-style: normal; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-mute); }
+</style>

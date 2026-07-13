@@ -1,0 +1,48 @@
+---
+/**
+ * SectionHeader — the header recipe. Three variants:
+ *  - "center" (default): eyebrow + centered uppercase display title + lead.
+ *  - "start":   left-aligned, for use INSIDE a wide text card.
+ *  - "row":     title left, actions right — used above rails, where the
+ *               actions slot holds the ‹ › arrow buttons (see Rail.astro).
+ */
+interface Props {
+  eyebrow?: string;
+  title: string;
+  lead?: string;
+  align?: "center" | "start" | "row";
+}
+const { eyebrow, title, lead, align = "center" } = Astro.props;
+---
+
+<header class={`sh sh-${align}`}>
+  <div class="sh-text">
+    {eyebrow && <p class="t-eyebrow reveal">{eyebrow}</p>}
+    <h2 class="t-display title reveal">{title}</h2>
+    {lead && <p class="lead reveal">{lead}</p>}
+  </div>
+  {align === "row" && (
+    <div class="sh-actions">
+      <slot name="actions" />
+    </div>
+  )}
+</header>
+
+<style>
+  .sh { margin-bottom: 2.25rem; }
+  .sh-text { display: flex; flex-direction: column; gap: 0.6rem; }
+  .sh-center .sh-text { align-items: center; text-align: center; }
+  .sh-start { margin-bottom: 1.5rem; }
+  .sh-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; }
+  .title { font-size: clamp(2rem, 3vw + 1rem, 3.2rem); max-width: 24ch; }
+  .sh-start .title { max-width: 20ch; }
+  .lead {
+    color: inherit; opacity: 0.82; font-weight: 600;
+    font-size: clamp(1rem, 1.5vw, 1.2rem); max-width: 60ch; margin-top: 0.4rem;
+  }
+  .sh-center .lead { margin-inline: auto; }
+  .sh-actions { flex-shrink: 0; padding-bottom: 0.4rem; }
+  @media (max-width: 640px) {
+    .sh-row { flex-direction: column; align-items: flex-start; }
+  }
+</style>

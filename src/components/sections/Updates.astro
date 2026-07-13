@@ -1,0 +1,48 @@
+---
+/** Recipe: COLLECTION RAIL — the flagship. Cards come from the `updates`
+ *  content collection (newest first), scroll in a rail with arrows, and
+ *  each opens its own page at /updates/[slug]. */
+import { getCollection } from "astro:content";
+import SectionHeader from "../SectionHeader.astro";
+import Rail from "../Rail.astro";
+import { site } from "../../data/site";
+import { formatDate } from "../../lib/format";
+const { updates } = site;
+
+const posts = (await getCollection("updates")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+{updates && posts.length > 0 && (
+  <section class="section container" id="updates">
+    <SectionHeader eyebrow={updates.eyebrow} title={updates.title} align="row">
+      <div class="rail-arrows" slot="actions">
+        <button class="rail-arrow" data-rail-prev aria-label="Previous updates">←</button>
+        <button class="rail-arrow" data-rail-next aria-label="More updates">→</button>
+      </div>
+    </SectionHeader>
+    <Rail label="Latest updates" itemWidth="min(340px, 78vw)">
+      {posts.map((p) => (
+        <a class="card card-pad update" href={`/updates/${p.slug}/`} role="listitem">
+          <div class="update-meta">
+            <span class="pill pill-soft">{p.data.tag}</span>
+            <time datetime={p.data.date.toISOString()}>{formatDate(p.data.date)}</time>
+          </div>
+          <h3 class="update-title">{p.data.title}</h3>
+          <p class="update-excerpt">{p.data.excerpt}</p>
+          <span class="update-more" aria-hidden="true">Read →</span>
+        </a>
+      ))}
+    </Rail>
+  </section>
+)}
+
+<style>
+  .update { display: flex; flex-direction: column; gap: 0.8rem; min-height: 230px; }
+  .update-meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .update-meta time { font-size: 0.75rem; color: var(--text-mute); }
+  .update-title { font-size: 1.15rem; font-weight: 800; line-height: 1.3; }
+  .update-excerpt { color: var(--text-mute); font-size: 0.92rem; line-height: 1.55; flex: 1; }
+  .update-more { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-2); }
+</style>

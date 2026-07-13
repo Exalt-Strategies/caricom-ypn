@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import { site } from "../../data/site";
+import { formatDate } from "../../lib/format";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<BaseLayout title={`Blog · ${site.name}`}>
+  <section class="section container">
+    <SectionHeader eyebrow="Blog" title="All Posts" />
+    <div class="grid12">
+      {posts.map((p) => (
+        <a class="card card-pad col-4 post reveal" href={`/blog/${p.slug}/`}>
+          <div class="post-meta">
+            <span class="pill pill-soft">{p.data.tag}</span>
+            <time datetime={p.data.date.toISOString()}>{formatDate(p.data.date)}</time>
+          </div>
+          <h2 class="post-title">{p.data.title}</h2>
+          <p class="post-excerpt">{p.data.excerpt}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .post { display: flex; flex-direction: column; gap: 0.8rem; }
+  .post-meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .post-meta time { font-size: 0.75rem; color: var(--text-mute); }
+  .post-title { font-size: 1.15rem; font-weight: 800; line-height: 1.3; }
+  .post-excerpt { color: var(--text-mute); font-size: 0.92rem; line-height: 1.55; }
+</style>

@@ -1,0 +1,41 @@
+---
+/** Recipe: CAMPAIGNS — 3-up cards with the one permitted graphic element:
+ *  a single-div progress bar. */
+import SectionHeader from "../SectionHeader.astro";
+import { site } from "../../data/site";
+const { campaigns } = site;
+---
+
+{campaigns && (
+  <section class="section container" id="campaigns">
+    <SectionHeader eyebrow={campaigns.eyebrow} title={campaigns.title} />
+    <div class="grid12">
+      {campaigns.items.map((c) => (
+        <article class="card card-pad col-4 camp reveal">
+          <h3 class="camp-title">{c.title}</h3>
+          <p class="camp-text">{c.text}</p>
+          <div
+            class="progress"
+            role="progressbar"
+            aria-valuenow={c.progress}
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-label={`${c.title} progress`}
+            style={`--p: ${c.progress}%`}
+          >
+            <i></i>
+          </div>
+          <p class="camp-goal">{c.goal}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .camp { display: flex; flex-direction: column; gap: 0.7rem; }
+  .camp-title { font-size: 1.15rem; font-weight: 800; }
+  .camp-text { color: var(--text-mute); font-size: 0.95rem; line-height: 1.6; flex: 1; }
+  .camp .progress { margin-top: 0.5rem; }
+  .camp-goal { font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-mute); }
+</style>

@@ -1,0 +1,38 @@
+---
+/** Recipe: TIMELINE — one wide card with pill-labelled rows. Vertical,
+ *  no connector art. */
+import SectionHeader from "../SectionHeader.astro";
+import { site } from "../../data/site";
+const { timeline } = site;
+---
+
+{timeline && (
+  <section class="section container" id="timeline">
+    <SectionHeader eyebrow={timeline.eyebrow} title={timeline.title} />
+    <ol class="card card-pad tl reveal">
+      {timeline.items.map((t) => (
+        <li class="tl-row">
+          <span class="pill tl-label">{t.label}</span>
+          <div>
+            <h3 class="tl-title">{t.title}</h3>
+            <p class="tl-text">{t.text}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+)}
+
+<style>
+  .tl { list-style: none; }
+  .tl-row {
+    display: grid; grid-template-columns: 5rem 1fr; gap: 1.25rem; align-items: start;
+    padding: 1.3rem 0; border-top: 1px solid var(--line);
+  }
+  .tl-row:first-child { border-top: none; padding-top: 0; }
+  .tl-row:last-child { padding-bottom: 0; }
+  .tl-label { justify-content: center; }
+  .tl-title { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.3rem; }
+  .tl-text { color: var(--text-mute); font-size: 0.95rem; line-height: 1.6; }
+  @media (max-width: 640px) { .tl-row { grid-template-columns: 1fr; gap: 0.6rem; } .tl-label { justify-self: start; } }
+</style>

@@ -1,0 +1,68 @@
+---
+/** Recipe: PEOPLE RAIL — scroll-snap row of portrait cards with arrows. */
+import SectionHeader from "../SectionHeader.astro";
+import Rail from "../Rail.astro";
+import MediaFrame from "../MediaFrame.astro";
+import { site } from "../../data/site";
+const { candidates } = site;
+---
+
+{candidates && (
+  <section class="section container" id="candidates">
+    <SectionHeader eyebrow={candidates.eyebrow} title={candidates.title} lead={candidates.lead} align="row">
+      <div class="rail-arrows" slot="actions">
+        <button class="rail-arrow" data-rail-prev aria-label="Previous candidates">←</button>
+        <button class="rail-arrow" data-rail-next aria-label="More candidates">→</button>
+      </div>
+    </SectionHeader>
+    {candidates.chair && (
+      <article class="card chair reveal">
+        <div class="chair-photo">
+          <MediaFrame ratio="1 / 1" src={candidates.chair.photo} label={candidates.chair.name} alt={`Portrait of ${candidates.chair.name}, ${candidates.chair.role}`} class="chair-mf" />
+        </div>
+        <div class="chair-text">
+          <span class="pill chair-pill">{candidates.chair.label}</span>
+          <h3 class="chair-name t-display t-outline">{candidates.chair.name}</h3>
+          <p class="chair-role t-eyebrow">{candidates.chair.role}</p>
+          <p class="chair-note">{candidates.chair.note}</p>
+        </div>
+      </article>
+    )}
+    <Rail label="Candidates" itemWidth="min(260px, 70vw)">
+      {candidates.items.map((c) => (
+        <article class="card cand reveal" role="listitem">
+          <MediaFrame ratio="3 / 4" src={(c as { photo?: string }).photo} label={c.name} alt={`Portrait of ${c.name}`} class="cand-photo" />
+          <div class="cand-text">
+            <h3 class="cand-name">{c.name}</h3>
+            <p class="cand-role">{c.role}</p>
+            <span class="pill pill-soft">{c.region}</span>
+          </div>
+        </article>
+      ))}
+    </Rail>
+  </section>
+)}
+
+<style>
+  /* Chairwoman spotlight — the featured-person poster: red card, lemon photo
+     frame, coral outlined name (echoes the reference set). */
+  .chair {
+    --card-fill: var(--signal-red); --card-ink: var(--paper);
+    --frame: var(--lemon); --frame-2: var(--spring-mint);
+    display: grid; grid-template-columns: minmax(200px, 300px) 1fr; gap: clamp(1.2rem, 3vw, 2.4rem);
+    align-items: center; padding: clamp(1.2rem, 3vw, 2rem); margin-bottom: var(--gutter);
+  }
+  .chair-photo { min-width: 0; }
+  .chair-pill { --pill-bg: var(--ink); color: var(--paper); }
+  .chair-name { font-size: clamp(2.4rem, 5.5vw, 4rem); margin: 0.9rem 0 0.2rem; }
+  .chair-role { opacity: 0.9; margin-bottom: 0.9rem; }
+  .chair-note { font-weight: 600; font-size: clamp(1rem, 1.4vw, 1.15rem); line-height: 1.5; max-width: 46ch; }
+  @media (max-width: 640px) { .chair { grid-template-columns: 1fr; } }
+
+  .cand { padding: 0.9rem 0.9rem 0; display: flex; flex-direction: column; }
+  .cand :global(.cand-photo) { margin-bottom: 0.2rem; }
+  .cand-text { padding: 1rem 0.5rem 1.3rem; display: flex; flex-direction: column; gap: 0.3rem; align-items: flex-start; }
+  .cand-name { font-size: 1.2rem; font-weight: 800; }
+  .cand-role { opacity: 0.8; font-size: 0.92rem; font-weight: 600; }
+  .cand-text .pill { margin-top: 0.5rem; }
+</style>

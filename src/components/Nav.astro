@@ -1,0 +1,31 @@
+---
+import { site } from "../data/site";
+---
+
+<nav class="container">
+  <a class="brand" href="/" aria-label={`${site.name} — home`}>
+    <img src="/logo-white.svg" alt={site.name} width="1276" height="151" />
+  </a>
+  <ul>
+    {site.nav.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+  </ul>
+  <a class="cta-pill nav-cta" href={site.ctaHref}>{site.ctaLabel}</a>
+</nav>
+
+<style>
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1.25rem; padding-block: 1.3rem; flex-wrap: wrap;
+  }
+  .brand { display: block; flex: 0 0 auto; }
+  .brand img { width: clamp(160px, 24vw, 250px); height: auto; }
+  ul { display: flex; gap: 1.5rem; list-style: none; }
+  ul a {
+    font-weight: 800; font-size: 0.72rem; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--paper);
+    transition: opacity 0.2s var(--ease);
+  }
+  ul a:hover { opacity: 0.6; }
+  .nav-cta { padding: 0.65rem 1.25rem; font-size: 0.66rem; background: var(--acid-lime); color: var(--ink); }
+  @media (max-width: 860px) { ul { display: none; } }
+</style>

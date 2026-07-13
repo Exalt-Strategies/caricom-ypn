@@ -1,0 +1,43 @@
+---
+/**
+ * Ticker — optional marquee pill under the nav. Renders nothing when
+ * site.ticker is empty. CSS keyframe animation only; frozen under
+ * prefers-reduced-motion (full text remains readable via aria-label).
+ */
+import { site } from "../data/site";
+const items = site.ticker ?? [];
+---
+
+{items.length > 0 && (
+  <div class="container">
+    <div class="ticker" aria-label={items.join(" · ")}>
+      <div class="ticker-track" aria-hidden="true">
+        {[0, 1].map(() => (
+          <span class="ticker-run">
+            {items.map((t) => (
+              <span class="ticker-item"><span class="tick-dot">●</span>{t}</span>
+            ))}
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+)}
+
+<style>
+  .ticker {
+    overflow: hidden; border-radius: 999px; background: var(--surface);
+    border: 1px solid var(--line);
+  }
+  .ticker-track { display: flex; width: max-content; animation: ticker 36s linear infinite; }
+  .ticker-run { display: flex; }
+  .ticker-item {
+    display: inline-flex; align-items: center; gap: 0.7em; padding: 0.6rem 0;
+    margin-right: 2.5rem; font-weight: 600;
+    font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text-mute); white-space: nowrap;
+  }
+  .tick-dot { color: var(--accent-2); font-size: 0.8em; }
+  @keyframes ticker { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; } }
+</style>

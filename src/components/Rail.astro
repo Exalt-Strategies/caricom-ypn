@@ -1,0 +1,54 @@
+---
+/**
+ * Rail — horizontal scroll-snap card row (the "more than fits" recipe).
+ * Baseline works with zero JS: native scroll + swipe + snap. The script
+ * upgrades any [data-rail-prev]/[data-rail-next] buttons found in the same
+ * <section>: scroll by one card, disable at the ends, hide when the content
+ * fits. Motion = native smooth scrolling only (CSS-only animation rule).
+ *
+ * Usage: <Rail label="Upcoming events"> <a class="card">…</a> … </Rail>
+ * Arrow buttons go in SectionHeader's `actions` slot (see any rail section).
+ */
+interface Props {
+  label?: string;
+  itemWidth?: string; // overrides --rail-item-w for this rail
+  class?: string;
+}
+const { label, itemWidth, class: cls = "" } = Astro.props;
+---
+
+<div
+  class={`rail ${cls}`}
+  data-rail
+  role="list"
+  aria-label={label}
+  style={itemWidth ? `--rail-item-w: ${itemWidth}` : undefined}
+>
+  <slot />
+</div>
+
+<script>
+  function setupRail(rail: HTMLElement) {
+    const section = rail.closest("section") ?? document.body;
+    const prev = section.querySelector<HTMLButtonElement>("[data-rail-prev]");
+    const next = section.querySelector<HTMLButtonElement>("[data-rail-next]");
+    if (!prev || !next) return;
+
+    const step = () => {
+      const first = rail.firstElementChild as HTMLElement | null;
+      return first ? first.offsetWidth + parseFloat(getComputedStyle(rail).gap || "24") : 320;
+    };
+    const update = () => {
+      const overflows = rail.scrollWidth > rail.clientWidth + 1;
+      prev.hidden = next.hidden = !overflows;
+      prev.disabled = rail.scrollLeft <= 1;
+      next.disabled = rail.scrollLeft >= rail.scrollWidth - rail.clientWidth - 1;
+    };
+    prev.addEventListener("click", () => rail.scrollBy({ left: -step(), behavior: "smooth" }));
+    next.addEventListener("click", () => rail.scrollBy({ left: step(), behavior: "smooth" }));
+    rail.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  }
+  document.querySelectorAll<HTMLElement>("[data-rail]").forEach(setupRail);
+</script>

@@ -1,0 +1,81 @@
+---
+/** Recipe: CONVERSION PANEL — THE one full-width color panel per page
+ *  (rhythm rule). Pitch left, minimal form right; submits as a mailto
+ *  draft so the skeleton works with no backend. */
+import { site } from "../../data/site";
+const { join } = site;
+---
+
+{join && (
+  <section class="section container" id="join">
+    <div class="panel join-panel reveal">
+      <div class="join-inner">
+        <div class="join-pitch">
+          <p class="t-eyebrow join-eyebrow">{join.eyebrow}</p>
+          <h2 class="t-display join-title">{join.title}</h2>
+          <p class="join-lead">{join.lead}</p>
+        </div>
+        <form class="join-form" data-join data-email={join.email}>
+          <label>{join.fields.name}
+            <input name="name" type="text" required autocomplete="name" />
+          </label>
+          <label>{join.fields.email}
+            <input name="email" type="email" required autocomplete="email" />
+          </label>
+          <label>{join.fields.city}
+            <input name="city" type="text" autocomplete="address-level2" />
+          </label>
+          <button type="submit" class="cta-pill join-submit">{join.submit}</button>
+          <p class="join-confirm" data-confirm hidden>{join.confirm}</p>
+        </form>
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+  /* THE one panel — a fixed cobalt fill so the white form reads on any poster. */
+  .join-panel { background: var(--cobalt); color: var(--paper); }
+  .join-inner {
+    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem, 4vw, 3.5rem);
+    padding: clamp(2rem, 5vw, 3.5rem);
+  }
+  .join-eyebrow { color: var(--on-accent); opacity: 0.7; }
+  .join-title { font-size: clamp(1.9rem, 3.2vw, 3rem); margin-top: 0.6rem; }
+  .join-lead { margin-top: 1.2rem; opacity: 0.85; max-width: 40ch; }
+  .join-form { display: flex; flex-direction: column; }
+  .join-form label {
+    display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 1.1rem;
+    font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.85;
+  }
+  .join-form input {
+    font: inherit; color: var(--on-accent);
+    background: color-mix(in srgb, var(--on-accent) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--on-accent) 25%, transparent);
+    border-radius: 12px; padding: 0.8rem 1rem;
+    transition: border-color 0.2s var(--ease);
+  }
+  .join-form input:focus-visible { outline: none; border-color: var(--on-accent); }
+  .join-submit { align-self: flex-start; background: var(--on-accent); color: var(--accent); border: none; }
+  .join-confirm { margin-top: 1rem; font-size: 0.9rem; opacity: 0.9; }
+  @media (max-width: 860px) { .join-inner { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+  // No-backend submit: drafts a mailto. Swap for a form service on deploy.
+  document.querySelectorAll<HTMLFormElement>("form[data-join]").forEach((form) => {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const f = new FormData(form);
+      const get = (k: string) => String(f.get(k) || "").trim();
+      if (!get("name") || !get("email")) return;
+      const subject = encodeURIComponent(`Membership: ${get("name")}`);
+      const body = encodeURIComponent(
+        `Name: ${get("name")}\nEmail: ${get("email")}\nCity: ${get("city")}`
+      );
+      window.location.href = `mailto:${form.dataset.email}?subject=${subject}&body=${body}`;
+      const c = form.querySelector<HTMLElement>("[data-confirm]");
+      if (c) setTimeout(() => (c.hidden = false), 400);
+    });
+  });
+</script>

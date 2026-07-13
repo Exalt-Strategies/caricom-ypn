@@ -1,0 +1,48 @@
+---
+import { site } from "../data/site";
+const { footer } = site;
+---
+
+<footer>
+  <div class="container foot">
+    <div class="foot-id">
+      <p class="foot-name">{site.name}</p>
+      <p class="foot-line">{footer.tagline}</p>
+      {footer.sponsor && <p class="foot-sponsor">{footer.sponsor}</p>}
+    </div>
+    <div class="foot-cols">
+      {footer.columns.map((col) => (
+        <div class="foot-col">
+          <p class="t-eyebrow">{col.title}</p>
+          <ul>
+            {col.links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+  <p class="container foot-fine">
+    © {new Date().getFullYear()} {site.name}.
+    {footer.designer && <span class="foot-designer"> {footer.designer}</span>}
+  </p>
+</footer>
+
+<style>
+  /* Footer sits directly on the black canvas — everything flips to paper. */
+  footer { color: var(--paper); border-top: 2px solid rgba(255, 255, 255, 0.22); padding-block: 3.5rem 2.5rem; margin-top: var(--gap-stack); }
+  .foot {
+    display: flex; justify-content: space-between; gap: 2.5rem; flex-wrap: wrap;
+    padding-bottom: 2.5rem; border-bottom: 2px solid rgba(255, 255, 255, 0.22);
+  }
+  .foot-name { font-weight: 800; }
+  .foot-line { color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; margin-top: 0.35rem; max-width: 34ch; }
+  .foot-sponsor { color: rgba(255, 255, 255, 0.7); font-size: 0.85rem; line-height: 1.5; margin-top: 0.7rem; max-width: 46ch; }
+  .foot-id .foot-sponsor { border-left: 3px solid var(--acid-lime); padding-left: 0.8rem; }
+  .foot-designer { color: var(--acid-lime); font-weight: 800; }
+  .foot-cols { display: flex; gap: 3.5rem; flex-wrap: wrap; }
+  .foot-col .t-eyebrow { color: var(--acid-lime); }
+  .foot-col ul { list-style: none; margin-top: 0.8rem; display: flex; flex-direction: column; gap: 0.5rem; }
+  .foot-col a { color: rgba(255, 255, 255, 0.7); font-size: 0.92rem; transition: color 0.2s var(--ease); }
+  .foot-col a:hover { color: var(--paper); }
+  .foot-fine { margin-top: 2.5rem; color: rgba(255, 255, 255, 0.5); font-size: 0.72rem; letter-spacing: 0.04em; }
+</style>

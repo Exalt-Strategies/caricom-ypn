@@ -1,0 +1,24 @@
+---
+/** Recipe: FAQ — accordion cards using native <details>/<summary>. Zero JS. */
+import SectionHeader from "../SectionHeader.astro";
+import { site } from "../../data/site";
+const { faq } = site;
+---
+
+{faq && (
+  <section class="section container" id="faq">
+    <SectionHeader eyebrow={faq.eyebrow} title={faq.title} />
+    <div class="accordion faq reveal">
+      {faq.items.map((f) => (
+        <details>
+          <summary>{f.q}</summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .faq { max-width: 780px; margin-inline: auto; }
+</style>

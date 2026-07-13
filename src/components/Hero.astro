@@ -1,0 +1,47 @@
+---
+/**
+ * Recipe: HERO — the top poster. Flat cobalt fill, the CYPN wordmark on top
+ * near full width (per the poster system), then the statement, subtitle and
+ * CTA centered beneath it. Flat fill only — no gradients or shadows.
+ */
+import { site } from "../data/site";
+const { hero } = site;
+---
+
+<header class="container hero">
+  <div class="hero-card">
+    <img class="hero-logo" src="/logo-white.svg" alt={site.name} width="1276" height="151" />
+    <div class="hero-inner">
+      {hero.badge && <span class="pill hero-badge reveal">{hero.badge}</span>}
+      <h1 class="t-display reveal">{hero.title}</h1>
+      {hero.subtitle && <p class="hero-sub reveal">{hero.subtitle}</p>}
+      <div class="cta-row reveal">
+        <a class="cta-pill hero-cta" href={site.ctaHref}>{site.ctaLabel}</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  .hero { padding-top: 0.5rem; }
+  .hero-card {
+    border-radius: var(--radius-outer);
+    background: var(--cobalt);
+    color: var(--paper);
+    border: var(--border-card) solid var(--ink);
+    padding: clamp(1.6rem, 4vw, 3rem);
+    display: flex; flex-direction: column; gap: clamp(1.5rem, 4vw, 3rem);
+  }
+  .hero-logo { width: 100%; height: auto; }
+  .hero-inner {
+    text-align: center; padding: 0 clamp(0.5rem, 3vw, 2.5rem) clamp(1rem, 3vw, 2.5rem);
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .hero-badge { --pill-bg: var(--ink); color: var(--paper); white-space: normal; text-align: center; border-radius: 22px; }
+  .hero h1 {
+    font-size: clamp(2.6rem, 7.5vw, 6rem); max-width: 14ch; margin-top: 1.4rem;
+    text-transform: uppercase;
+  }
+  .hero-sub { font-size: clamp(1.05rem, 1.6vw, 1.35rem); max-width: 46ch; margin-top: 1.3rem; font-weight: 600; }
+  .hero-cta { background: var(--acid-lime); color: var(--ink); }
+</style>

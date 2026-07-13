@@ -1,0 +1,45 @@
+---
+/**
+ * The kitchen-sink homepage: every recipe, in the order declared by the
+ * `sections` manifest in src/data/site.ts. If you add/remove/reorder a
+ * section, update BOTH this file and the manifest — the structure test
+ * (tests/e2e/structure.spec.ts) fails until they agree. That's on purpose.
+ */
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import Ticker from "../components/Ticker.astro";
+import Mission from "../components/sections/Mission.astro";
+import Stats from "../components/sections/Stats.astro";
+import Candidates from "../components/sections/Candidates.astro";
+import MemberStates from "../components/sections/MemberStates.astro";
+import Campaigns from "../components/sections/Campaigns.astro";
+import Updates from "../components/sections/Updates.astro";
+import Blog from "../components/sections/Blog.astro";
+import Testimonials from "../components/sections/Testimonials.astro";
+import Manifestos from "../components/sections/Manifestos.astro";
+import Press from "../components/sections/Press.astro";
+import Timeline from "../components/sections/Timeline.astro";
+import Faq from "../components/sections/Faq.astro";
+import Join from "../components/sections/Join.astro";
+import Contact from "../components/sections/Contact.astro";
+import { site } from "../data/site";
+---
+
+<BaseLayout title={site.name}>
+  <Ticker />
+  <Hero />
+  <Mission />
+  <Stats />
+  <Candidates />
+  <MemberStates />
+  <Campaigns />
+  <Updates />
+  <Blog />
+  <Testimonials />
+  <Manifestos />
+  <Press />
+  <Timeline />
+  <Faq />
+  <Join />
+  <Contact />
+</BaseLayout>

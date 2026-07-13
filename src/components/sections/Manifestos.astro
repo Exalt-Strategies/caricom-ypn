@@ -1,0 +1,32 @@
+---
+/** Recipe: DOCUMENTS — 2-up download cards: title, blurb, filetype pill. */
+import SectionHeader from "../SectionHeader.astro";
+import { site } from "../../data/site";
+const { manifestos } = site;
+---
+
+{manifestos && (
+  <section class="section container" id="manifestos">
+    <SectionHeader eyebrow={manifestos.eyebrow} title={manifestos.title} />
+    <div class="grid12">
+      {manifestos.items.map((m) => (
+        <a class="card card-pad col-6 doc reveal" href={m.href}>
+          <div class="doc-head">
+            <h3 class="doc-title">{m.title}</h3>
+            <span class="pill pill-soft">{m.filetype}</span>
+          </div>
+          <p class="doc-blurb">{m.blurb}</p>
+          <span class="doc-more" aria-hidden="true">Download →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .doc { display: flex; flex-direction: column; gap: 0.8rem; }
+  .doc-head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 0.75rem 1rem; }
+  .doc-title { font-size: 1.25rem; font-weight: 800; }
+  .doc-blurb { color: var(--text-mute); font-size: 0.95rem; line-height: 1.6; flex: 1; }
+  .doc-more { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+</style>
