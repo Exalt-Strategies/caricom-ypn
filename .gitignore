@@ -12,3 +12,5 @@ npm-debug.log*
 # test output (baselines in tests/e2e/*-snapshots/ ARE committed)
 test-results/
 playwright-report/
+# vercel local link
+.vercel/
