@@ -97,6 +97,7 @@ export const site = {
     },
     items: [
       { name: "Jonathan Wehner", role: "Member of Parliament", region: "Antigua & Barbuda", photo: "/img/jonathan-wehner.jpg" },
+      { name: "Isalean Phillip", role: "Senator · Minister of Youth", region: "St. Kitts & Nevis", photo: "/img/isalean-phillip.jpg" },
       { name: "Anika Charles", role: "Member of Parliament", region: "Trinidad & Tobago" },
       { name: "Kwame Boateng", role: "Member of the House", region: "Jamaica" },
       { name: "Shanice Fredericks", role: "Senator", region: "Barbados" },
