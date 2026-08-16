@@ -1,8 +1,8 @@
 ---
-title: "Fifteenth chapter opens: every CARICOM state on board"
+title: "Fifteenth chapter opens: every Caribbean state on board"
 date: 2026-07-01
 tag: win
-excerpt: "With the newest chapter sworn in, all fifteen CARICOM member parliaments now sit inside the network."
+excerpt: "With the newest chapter sworn in, all fifteen Caribbean member parliaments now sit inside the network."
 image: "/img/updates/update-working.jpg"
 ---
 

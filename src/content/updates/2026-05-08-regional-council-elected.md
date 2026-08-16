@@ -8,7 +8,7 @@ image: "/img/updates/update-region.jpg"
 
 Delegates from every active national chapter met to elect the network's first
 regional council, a nine-member body that will hold the shared priorities,
-approve model legislation, and represent the network to CARICOM institutions.
+approve model legislation, and represent the network to Caribbean institutions.
 
 The council is chaired on a rotating basis so no single parliament dominates
 the agenda, and every member state keeps one vote regardless of the size of its

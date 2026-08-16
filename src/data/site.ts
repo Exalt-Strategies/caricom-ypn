@@ -66,7 +66,7 @@ export const site = {
     title: "A Caribbean That Governs With Its Young People",
     body: [
       "A Caribbean where every young person has access to quality education, meaningful employment, environmental sustainability, and a voice in shaping the future.",
-      "The Young Parliamentarians Network exists to put that voice inside the chamber, not outside it. We connect young elected members across all fifteen CARICOM states, train the next cohort before they run, and hold each other to the agenda we campaigned on.",
+      "The Young Parliamentarians Network exists to put that voice inside the chamber, not outside it. We connect young elected members across all fifteen Caribbean states, train the next cohort before they run, and hold each other to the agenda we campaigned on.",
     ],
     asides: [
       { quote: "Half our region is under thirty. Almost none of the people writing its laws are.", attr: "Why the network exists" },
@@ -78,8 +78,8 @@ export const site = {
     eyebrow: "The Network",
     title: "One Region, Counted",
     items: [
-      { num: "15", label: "Member states", note: "Every CARICOM member parliament has a seat in the network." },
-      { num: "62", label: "Young members", note: "Sitting parliamentarians under forty, across both chambers." },
+      { num: "15", label: "Member states", note: "Every Caribbean member parliament has a seat in the network." },
+      { num: "68", label: "Young members", note: "Sitting parliamentarians under forty, across both chambers." },
       { num: "34", label: "Average age", note: "Against a regional legislature average north of fifty-five." },
     ],
   },
@@ -93,7 +93,7 @@ export const site = {
       name: "Brittney Galvez",
       role: "Senator · Belize",
       photo: "/img/brittney-galvez.jpg",
-      note: "Chairs the network's regional council, elected by delegates from every national chapter. She carries the shared agenda into CARICOM institutions and keeps fifteen chambers moving together.",
+      note: "Chairs the network's regional council, elected by delegates from every national chapter. She carries the shared agenda into Caribbean institutions and keeps fifteen chambers moving together.",
     },
     viceChair: {
       label: "Vice Chairperson",
@@ -114,7 +114,7 @@ export const site = {
 
   memberStates: {
     eyebrow: "Fifteen Chambers",
-    title: "CARICOM Member States",
+    title: "Caribbean Member States",
     lead: "The network runs a national chapter in every member parliament of the Caribbean Community.",
     items: [
       { country: "Trinidad & Tobago", capital: "Port of Spain", members: 8 },
@@ -127,6 +127,11 @@ export const site = {
       { country: "Antigua & Barbuda", capital: "St. John's", members: 4 },
       { country: "Belize", capital: "Belmopan", members: 3 },
       { country: "Suriname", capital: "Paramaribo", members: 3 },
+      { country: "Dominica", capital: "Roseau", members: 3 },
+      { country: "Saint Kitts & Nevis", capital: "Basseterre", members: 3 },
+      { country: "Saint Vincent & the Grenadines", capital: "Kingstown", members: 3 },
+      { country: "Haiti", capital: "Port-au-Prince", members: 5 },
+      { country: "Montserrat", capital: "Brades", members: 2 },
     ],
   },
 
@@ -175,7 +180,7 @@ export const site = {
     items: [
       { outlet: "Caribbean Broadcasting", headline: "The under-40 caucus quietly rewriting committee rules", date: "June 2026", href: "#" },
       { outlet: "The Regional Voice", headline: "Fifteen parliaments, one youth network, one agenda", date: "May 2026", href: "#" },
-      { outlet: "Stabroek Weekly", headline: "How young MPs across CARICOM started organising together", date: "April 2026", href: "#" },
+      { outlet: "Stabroek Weekly", headline: "How young MPs across the Caribbean started organising together", date: "April 2026", href: "#" },
     ],
   },
 
@@ -187,7 +192,7 @@ export const site = {
       { label: "2022", title: "The first convening", text: "Members from nine states meet, draft a charter, and agree the network is a caucus, not a conference." },
       { label: "2023", title: "National chapters open", text: "Chapters stand up inside individual parliaments; the playbook is written from what actually worked." },
       { label: "2024", title: "The first shared win", text: "The reserved-committee-seat rule passes in its first chamber. Others begin to copy the language." },
-      { label: "2026", title: "All fifteen at the table", text: "Every CARICOM member parliament has a chapter and a vote in the regional council." },
+      { label: "2026", title: "All fifteen at the table", text: "Every Caribbean member parliament has a chapter and a vote in the regional council." },
     ],
   },
 
@@ -195,7 +200,7 @@ export const site = {
     eyebrow: "Questions",
     title: "About the Network",
     items: [
-      { q: "Who can be a member?", a: "Any sitting member of a CARICOM member parliament, in either chamber, who is under forty at the time they join. Members keep their seat in the network for the full term even past that age." },
+      { q: "Who can be a member?", a: "Any sitting member of a Caribbean member parliament, in either chamber, who is under forty at the time they join. Members keep their seat in the network for the full term even past that age." },
       { q: "Is this a political party?", a: "No. The network is cross-party. Members belong to whichever party they were elected under; the network organises them around a shared, generational agenda, not a whip." },
       { q: "What does a national chapter actually do?", a: "It coordinates the young members within one parliament, runs candidate training for the next cohort, and carries the network's priorities into that chamber's committees and order paper." },
       { q: "I'm not elected yet. Can I take part?", a: "Yes, as an aspiring member. You get the playbook, a mentor who has already run, and an invitation to chapter training. The network exists partly to get the next cohort elected." },

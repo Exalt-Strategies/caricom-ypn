@@ -1,5 +1,5 @@
 /* =====================================================================
-   DESIGN TOKENS — CARICOM Young Parliamentarians Network.
+   DESIGN TOKENS — Caribbean Young Parliamentarians Network.
    ---------------------------------------------------------------------
    Sticker-poster brand: clashing high-chroma fills, thick black outlines,
    deeply nested rounded rectangles, chunky Inter. Every adjacent layer is
@@ -18,7 +18,7 @@
 }
 
 :root {
-  /* ---- CARICOM palette (sampled from the source posters) --------------- */
+  /* ---- Caribbean palette (sampled from the source posters) --------------- */
   --ink:         #000000;
   --paper:       #ffffff;
   --signal-red:  #ee3835;
