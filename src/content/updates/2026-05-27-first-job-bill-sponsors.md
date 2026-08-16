@@ -3,6 +3,7 @@ title: "First-job guarantee bill picks up four sponsors"
 date: 2026-05-27
 tag: campaign
 excerpt: "A model bill on the school-to-first-job pathway now has sponsors lined up in four parliaments."
+image: "/img/updates/update-govhouse.jpg"
 ---
 
 The network's model bill on a graduate first-job pathway now has committed

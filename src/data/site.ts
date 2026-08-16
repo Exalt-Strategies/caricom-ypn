@@ -1,7 +1,7 @@
 /**
  * SITE CONTENT — the words layer. Components read from here.
  *
- * CARICOM Young Parliamentarians Network (CYPN): a network of young elected
+ * Caribbean Young Parliamentarians Network (CYPN): a network of young elected
  * members of parliament across the Caribbean Community. Parliamentarian names
  * and figures below are illustrative placeholders for this design build —
  * swap for verified data before any real launch.
@@ -32,7 +32,7 @@ export const sections = [
 ] as const;
 
 export const site = {
-  name: "CARICOM Young Parliamentarians Network",
+  name: "Caribbean Young Parliamentarians Network",
   shortName: "CYPN",
   description:
     "The network of young elected members of parliament across the Caribbean Community, building a louder generation in every chamber.",
@@ -48,7 +48,7 @@ export const site = {
   ],
 
   ticker: [
-    "CARICOM Young Parliamentarians Network",
+    "Caribbean Young Parliamentarians Network",
     "Young voices. Real seats. One Caribbean.",
     "15 member states, one generation",
     "Every chamber, a little younger",
@@ -95,9 +95,14 @@ export const site = {
       photo: "/img/brittney-galvez.jpg",
       note: "Chairs the network's regional council, elected by delegates from every national chapter. She carries the shared agenda into CARICOM institutions and keeps fifteen chambers moving together.",
     },
+    viceChair: {
+      label: "Vice Chairperson",
+      name: "Jonathan Wehner",
+      role: "Senator · Antigua & Barbuda",
+      photo: "/img/jonathan-wehner.jpg",
+      note: "Vice-chairs the regional council alongside the chair, coordinating the national chapters and carrying the youth agenda into the Antigua and Barbuda Senate.",
+    },
     items: [
-      { name: "Jonathan Wehner", role: "Member of Parliament", region: "Antigua & Barbuda", photo: "/img/jonathan-wehner.jpg" },
-      { name: "Isalean Phillip", role: "Senator · Minister of Youth", region: "St. Kitts & Nevis", photo: "/img/isalean-phillip.jpg" },
       { name: "Anika Charles", role: "Member of Parliament", region: "Trinidad & Tobago" },
       { name: "Kwame Boateng", role: "Member of the House", region: "Jamaica" },
       { name: "Shanice Fredericks", role: "Senator", region: "Barbados" },
@@ -221,7 +226,7 @@ export const site = {
 
   footer: {
     tagline: "The network of young elected members across the Caribbean Community.",
-    sponsor: "CARICOM YPN is a programme of the Centre for Youth Policy (CYP), which serves as its secretariat, headquarters, and fiscal sponsor.",
+    sponsor: "The Caribbean Young Parliamentarians Network is a programme of the Centre for Youth Policy (CYP), which serves as its secretariat, headquarters, and fiscal sponsor.",
     designer: "Website designed by Exalt Strategies.",
     columns: [
       {

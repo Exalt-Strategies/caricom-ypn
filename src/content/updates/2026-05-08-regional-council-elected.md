@@ -3,6 +3,7 @@ title: "Network elects its first regional council"
 date: 2026-05-08
 tag: announcement
 excerpt: "Delegates from every active chapter elect a nine-member regional council to steer the network's shared work."
+image: "/img/updates/update-region.jpg"
 ---
 
 Delegates from every active national chapter met to elect the network's first

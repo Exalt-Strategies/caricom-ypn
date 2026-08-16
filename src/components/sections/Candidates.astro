@@ -28,6 +28,19 @@ const { candidates } = site;
         </div>
       </article>
     )}
+    {candidates.viceChair && (
+      <article class="card chair vice reveal">
+        <div class="chair-photo">
+          <MediaFrame ratio="1 / 1" src={candidates.viceChair.photo} label={candidates.viceChair.name} alt={`Portrait of ${candidates.viceChair.name}, ${candidates.viceChair.role}`} class="chair-mf" />
+        </div>
+        <div class="chair-text">
+          <span class="pill chair-pill">{candidates.viceChair.label}</span>
+          <h3 class="chair-name t-display t-outline">{candidates.viceChair.name}</h3>
+          <p class="chair-role t-eyebrow">{candidates.viceChair.role}</p>
+          <p class="chair-note">{candidates.viceChair.note}</p>
+        </div>
+      </article>
+    )}
     <Rail label="Candidates" itemWidth="min(260px, 70vw)">
       {candidates.items.map((c) => (
         <article class="card cand reveal" role="listitem">
@@ -58,6 +71,10 @@ const { candidates } = site;
   .chair-role { opacity: 0.9; margin-bottom: 0.9rem; }
   .chair-note { font-weight: 600; font-size: clamp(1rem, 1.4vw, 1.15rem); line-height: 1.5; max-width: 46ch; }
   @media (max-width: 640px) { .chair { grid-template-columns: 1fr; } }
+
+  /* Vice Chairperson spotlight — cobalt card, coral frame, to clash with the
+     chair's red and the mint poster behind both. */
+  .vice { --card-fill: var(--cobalt); --card-ink: var(--paper); --frame: var(--coral); --frame-2: var(--lemon); }
 
   .cand { padding: 0.9rem 0.9rem 0; display: flex; flex-direction: column; }
   .cand :global(.cand-photo) { margin-bottom: 0.2rem; }

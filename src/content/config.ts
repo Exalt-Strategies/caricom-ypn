@@ -14,6 +14,7 @@ const updates = defineCollection({
     date: z.date(),
     tag: z.enum(["win", "campaign", "chapter", "event", "announcement"]),
     excerpt: z.string().max(160),
+    image: z.string().optional(),   // public/ path to a card photo, e.g. "/img/updates/x.jpg"
   }),
 });
 

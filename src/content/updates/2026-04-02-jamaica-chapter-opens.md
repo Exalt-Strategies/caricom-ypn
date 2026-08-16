@@ -3,6 +3,7 @@ title: "Jamaica chapter opens with nine members"
 date: 2026-04-02
 tag: chapter
 excerpt: "Nine young members across both houses form the network's largest national chapter to date."
+image: "/img/updates/update-town.jpg"
 ---
 
 The Jamaica chapter launched in Kingston this week with nine sitting members

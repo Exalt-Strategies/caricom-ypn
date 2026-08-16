@@ -3,6 +3,7 @@ title: "Fifteenth chapter opens: every CARICOM state on board"
 date: 2026-07-01
 tag: win
 excerpt: "With the newest chapter sworn in, all fifteen CARICOM member parliaments now sit inside the network."
+image: "/img/updates/update-working.jpg"
 ---
 
 The newest national chapter held its first meeting this week, which means all

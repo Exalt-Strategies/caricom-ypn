@@ -3,6 +3,7 @@ title: "Reserved committee-seat rule passes in Guyana"
 date: 2026-03-12
 tag: win
 excerpt: "Guyana's National Assembly adopts the network's standing rule reserving committee places for members under forty."
+image: "/img/updates/update-parliament.jpg"
 ---
 
 The National Assembly in Georgetown adopted the reserved-seat rule this week,

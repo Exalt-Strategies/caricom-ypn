@@ -3,6 +3,7 @@ title: "Youth climate-budget scrutiny adopted in six states"
 date: 2026-04-21
 tag: campaign
 excerpt: "Six chapters will now review national climate and resilience budget lines before they reach the floor."
+image: "/img/updates/update-coast.jpg"
 ---
 
 Six national chapters have signed on to a shared framework for scrutinising

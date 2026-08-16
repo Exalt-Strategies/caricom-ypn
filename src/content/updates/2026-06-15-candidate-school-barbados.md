@@ -3,6 +3,7 @@ title: "Candidate school in Barbados trains 40 hopefuls"
 date: 2026-06-15
 tag: event
 excerpt: "Forty aspiring members spent a weekend in Bridgetown learning the mechanics of running and winning."
+image: "/img/updates/update-harbour.jpg"
 ---
 
 Forty aspiring candidates spent a weekend in Bridgetown at the network's
