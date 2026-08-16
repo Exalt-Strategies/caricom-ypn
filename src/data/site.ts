@@ -103,11 +103,12 @@ export const site = {
       note: "Vice-chairs the regional council alongside the chair, coordinating the national chapters and carrying the youth agenda into the Antigua and Barbuda Senate.",
     },
     items: [
-      { name: "Anika Charles", role: "Member of Parliament", region: "Trinidad & Tobago" },
-      { name: "Kwame Boateng", role: "Member of the House", region: "Jamaica" },
-      { name: "Shanice Fredericks", role: "Senator", region: "Barbados" },
-      { name: "Devon Marshall", role: "Member of Parliament", region: "Guyana" },
-      { name: "Marie-Claire Joseph", role: "Member of the Assembly", region: "Saint Lucia" },
+      { name: "Hector Guerra", role: "Senator", region: "Belize", photo: "/img/hector-guerra.jpg" },
+      { name: "Sjamira Roseburg", role: "Member of Parliament", region: "Sint Maarten", photo: "/img/sjamira-roseburg.jpg" },
+      { name: "Kiz Johnson", role: "Minister of State", region: "Antigua & Barbuda", photo: "/img/kiz-johnson.jpg" },
+      { name: "Seville Francis-Lewis", role: "Parliamentary Secretary, Youth & Sports", region: "Grenada", photo: "/img/seville-francis-lewis.jpg" },
+      { name: "Chalika Vidal", role: "Senator", region: "Dominica", photo: "/img/chalika-vidal.jpg" },
+      { name: "Kenya Charles", role: "Senator", region: "Trinidad & Tobago", photo: "/img/kenya-charles.jpg" },
     ],
   },
 
