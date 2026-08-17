@@ -1,4 +1,4 @@
-# CARICOM YPN — Sticker-Poster Design System
+# Caribbean YPN — Sticker-Poster Design System
 
 A loud, tropical, sticker-poster system: clashing high-chroma fills, thick black
 outlines, deeply nested rounded rectangles, and chunky Inter. Every layer is a
@@ -6,7 +6,7 @@ outlines, deeply nested rounded rectangles, and chunky Inter. Every layer is a
 Flat fills only — no gradients, no drop shadows. Depth comes from color layering,
 rounding, and the black keyline.
 
-This is the system as actually shipped on **caricom-ypn.vercel.app**. Companion
+This is the system as actually shipped on **caribbeanypn.org**. Companion
 machine-readable tokens: [`tokens.json`](./tokens.json).
 
 ---

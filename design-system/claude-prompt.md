@@ -1,6 +1,6 @@
-# Copy-paste prompt for Claude — CARICOM sticker-poster style
+# Copy-paste prompt for Claude — Caribbean sticker-poster style
 
-> Design in the **CARICOM sticker-poster style**. Rules:
+> Design in the **Caribbean sticker-poster style**. Rules:
 >
 > **Palette** (use only these; each adjacent layer a *different* one): ink `#000000`, paper `#ffffff`, signal-red `#ee3835`, cobalt `#007df6`, acid-lime `#c3f900`, spring-mint `#6dff80`, lavender `#bea2e7`, orchid `#e280fd`, lemon `#f8eb39`, kelly-green `#29b24a`, coral `#ffabab`.
 >
