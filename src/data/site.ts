@@ -66,7 +66,7 @@ export const site = {
     title: "A Caribbean That Governs With Its Young People",
     body: [
       "A Caribbean where every young person has access to quality education, meaningful employment, environmental sustainability, and a voice in shaping the future.",
-      "The Young Parliamentarians Network exists to put that voice inside the chamber, not outside it. We connect young elected members across all fifteen Caribbean states, train the next cohort before they run, and hold each other to the agenda we campaigned on.",
+      "The Young Parliamentarians Network exists to put that voice inside the chamber, not outside it. It brings young elected members together from across the region, so the youngest person in each parliament is not doing the work alone.",
     ],
     asides: [
       { quote: "Half our region is under thirty. Almost none of the people writing its laws are.", attr: "Why the network exists" },
@@ -76,11 +76,11 @@ export const site = {
 
   stats: {
     eyebrow: "The Network",
-    title: "One Region, Counted",
+    title: "New, and Building",
     items: [
-      { num: "15", label: "Member states", note: "Every Caribbean member parliament has a seat in the network." },
-      { num: "68", label: "Young members", note: "Sitting parliamentarians under forty, across both chambers." },
-      { num: "34", label: "Average age", note: "Against a regional legislature average north of fifty-five." },
+      { num: "2026", label: "Founded", note: "Convened by the Centre for Youth Policy as a network for young Caribbean parliamentarians." },
+      { num: "Under 40", label: "Who it's for", note: "Membership is open to sitting members of parliament under forty." },
+      { num: "15", label: "Member states", note: "The CARICOM parliaments the network is being built across." },
     ],
   },
 
@@ -93,14 +93,14 @@ export const site = {
       name: "Brittney Galvez",
       role: "Senator · Belize",
       photo: "/img/brittney-galvez.jpg",
-      note: "Chairs the network's regional council, elected by delegates from every national chapter. She carries the shared agenda into Caribbean institutions and keeps fifteen chambers moving together.",
+      note: "As founding chair, she helps convene the network and carry its young members' shared agenda into the region's institutions.",
     },
     viceChair: {
       label: "Vice Chairperson",
       name: "Jonathan Wehner",
       role: "Senator · Antigua & Barbuda",
       photo: "/img/jonathan-wehner.jpg",
-      note: "Vice-chairs the regional council alongside the chair, coordinating the national chapters and carrying the youth agenda into the Antigua and Barbuda Senate.",
+      note: "As founding vice chair, he helps steer the network's first year and carries the youth agenda into the Antigua and Barbuda Senate.",
     },
     items: [
       { name: "Hector Guerra", role: "Senator", region: "Belize", photo: "/img/hector-guerra.jpg" },
@@ -115,7 +115,7 @@ export const site = {
   memberStates: {
     eyebrow: "Fifteen Chambers",
     title: "Caribbean Member States",
-    lead: "The network runs a national chapter in every member parliament of the Caribbean Community.",
+    lead: "The Caribbean Community's fifteen member states, the parliaments the network is being built across.",
     items: [
       { country: "Trinidad & Tobago", capital: "Port of Spain", members: 8 },
       { country: "Jamaica", capital: "Kingston", members: 9 },
@@ -136,12 +136,12 @@ export const site = {
   },
 
   campaigns: {
-    eyebrow: "What We're Pushing",
+    eyebrow: "What We'll Push For",
     title: "The Network's Priorities",
     items: [
-      { title: "A Youth Seat on Every Committee", text: "A standing rule that reserves committee places for members under forty, in every national parliament.", progress: 55, goal: "9 of 15 chambers committed" },
-      { title: "Climate Budgets Written by the Inheritors", text: "Youth-led scrutiny of every national climate and resilience budget line before it passes.", progress: 42, goal: "Framework adopted in 6 states" },
-      { title: "First-Job Guarantee for Graduates", text: "A regional pathway from school to a first paid role, championed chamber by chamber.", progress: 30, goal: "Model bill drafted, 4 sponsors" },
+      { title: "A Stronger Youth Voice in Committees", text: "Making the case for younger members to sit on the committees that shape budgets, climate and reform.", progress: 15, goal: "A founding priority for 2026" },
+      { title: "Climate on the Next Generation's Terms", text: "Bringing young parliamentarians into the scrutiny of national climate and resilience spending.", progress: 10, goal: "On the launch agenda" },
+      { title: "A Real Path From School to Work", text: "Championing the school-to-first-job pathway young Caribbean people are asking for.", progress: 10, goal: "In development" },
     ],
   },
 
@@ -156,43 +156,41 @@ export const site = {
   },
 
   testimonials: {
-    eyebrow: "Members",
-    title: "Why They Joined",
+    eyebrow: "What We Believe",
+    title: "Why This Network",
     items: [
-      { quote: "I was the youngest person in my chamber by fifteen years. The network was the first room where I wasn't.", attr: "Anika, 31 · Trinidad & Tobago" },
-      { quote: "Before I ran, a member two islands over walked me through her whole first budget cycle. That is the network.", attr: "Devon, 29 · Guyana" },
-      { quote: "We stopped waiting to be invited onto committees and wrote the rule that puts us there.", attr: "Shanice, 33 · Barbados" },
+      { quote: "Half the region is under thirty. Almost none of the people writing its laws are. That gap is the whole reason to organise.", attr: "Why it exists" },
+      { quote: "You win a seat and then discover how alone the job can be. This is the room where the youngest member in the chamber isn't the youngest in the room.", attr: "What it offers" },
+      { quote: "Not a party and not a talking shop. A working network of people who already hold seats, across party and across borders.", attr: "What it is" },
     ],
   },
 
   manifestos: {
-    eyebrow: "Read the Documents",
+    eyebrow: "Founding Documents",
     title: "Charter & Papers",
     items: [
-      { title: "The Network Charter", blurb: "How the network is governed: membership, the national chapters, the regional council, and what every member signs up to.", filetype: "PDF · 18 pages", href: "#" },
-      { title: "Youth in Parliament: A Playbook", blurb: "The full toolkit for a young person deciding whether to run, from first branch meeting to first reading.", filetype: "PDF · 40 pages", href: "#" },
+      { title: "The Network Charter", blurb: "How the network will be governed: membership, the national chapters, and the role of the Centre for Youth Policy as secretariat.", filetype: "In development", href: "#" },
+      { title: "Young in the Chamber: A Handbook", blurb: "A working guide for young members finding their feet in their first term, being written with the founding cohort.", filetype: "Coming 2026", href: "#" },
     ],
   },
 
   press: {
-    eyebrow: "In the News",
-    title: "Press",
+    eyebrow: "Around the Region",
+    title: "Youth in the Chamber",
     items: [
-      { outlet: "Caribbean Broadcasting", headline: "The under-40 caucus quietly rewriting committee rules", date: "June 2026", href: "#" },
-      { outlet: "The Regional Voice", headline: "Fifteen parliaments, one youth network, one agenda", date: "May 2026", href: "#" },
-      { outlet: "Stabroek Weekly", headline: "How young MPs across the Caribbean started organising together", date: "April 2026", href: "#" },
+      { outlet: "Inter-Parliamentary Union", headline: "Who are the world's youngest parliamentarians?", date: "Aug 2024", href: "https://www.ipu.org/news/news-in-brief/2024-08/who-are-youngest-and-oldest-parliamentarians-in-world" },
+      { outlet: "The Voice (St. Lucia)", headline: "Youth parliament debates power the region's reparations drive", date: "May 2026", href: "https://thevoiceslu.com/2026/05/youth-parliament-debates-will-power-caricom-reparations-drive-to-higher-heights/" },
+      { outlet: "Antigua Observer", headline: "Hopes to expand the Eastern Caribbean Youth Parliament Network", date: "2025", href: "https://antiguaobserver.com/nypaab-hopes-to-expand-the-eastern-caribbean-youth-parliament-network-to-other-territories/" },
     ],
   },
 
   timeline: {
-    eyebrow: "How We Got Here",
-    title: "The Story So Far",
+    eyebrow: "Where We're Starting",
+    title: "A Network in Year One",
     items: [
-      { label: "2021", title: "A corridor conversation", text: "Four young MPs at a regional sitting realise they have the same problem and no way to talk between sessions." },
-      { label: "2022", title: "The first convening", text: "Members from nine states meet, draft a charter, and agree the network is a caucus, not a conference." },
-      { label: "2023", title: "National chapters open", text: "Chapters stand up inside individual parliaments; the playbook is written from what actually worked." },
-      { label: "2024", title: "The first shared win", text: "The reserved-committee-seat rule passes in its first chamber. Others begin to copy the language." },
-      { label: "2026", title: "All fifteen at the table", text: "Every Caribbean member parliament has a chapter and a vote in the regional council." },
+      { label: "2026", title: "The network launches", text: "The Centre for Youth Policy convenes young Caribbean parliamentarians into one standing network across the region." },
+      { label: "2026", title: "A founding cohort", text: "Sitting members under forty, across parties and across borders, come together and choose a chair and vice chair." },
+      { label: "Next", title: "Building the chapters", text: "The work ahead: a national chapter in each member parliament and a shared agenda for the region's under-forties." },
     ],
   },
 
@@ -200,33 +198,32 @@ export const site = {
     eyebrow: "Questions",
     title: "About the Network",
     items: [
-      { q: "Who can be a member?", a: "Any sitting member of a Caribbean member parliament, in either chamber, who is under forty at the time they join. Members keep their seat in the network for the full term even past that age." },
-      { q: "Is this a political party?", a: "No. The network is cross-party. Members belong to whichever party they were elected under; the network organises them around a shared, generational agenda, not a whip." },
-      { q: "What does a national chapter actually do?", a: "It coordinates the young members within one parliament, runs candidate training for the next cohort, and carries the network's priorities into that chamber's committees and order paper." },
-      { q: "I'm not elected yet. Can I take part?", a: "Yes, as an aspiring member. You get the playbook, a mentor who has already run, and an invitation to chapter training. The network exists partly to get the next cohort elected." },
-      { q: "How is it funded and governed?", a: "By member states' chapters and regional partners, governed by an elected regional council. The full arrangement is set out in the Network Charter above." },
+      { q: "Who can be a member?", a: "The network is for sitting young parliamentarians: any current member of a Caribbean parliament, in either chamber, who is under forty. It is a caucus of people who already hold a seat." },
+      { q: "Is this a political party?", a: "No. The network is cross-party. Members belong to whichever party they were elected under; it brings them together around a shared, generational agenda, not a whip." },
+      { q: "What does a national chapter do?", a: "It brings together the young members sitting in one parliament, coordinates their work across committees, and connects them to the wider regional network." },
+      { q: "I'm not elected yet. Can I take part?", a: "Full membership is for people already holding a seat, so not yet. But you can follow the network's work, and connect with the young members and chapter forming in your own country." },
+      { q: "How is it run?", a: "The Caribbean Young Parliamentarians Network is convened and supported by the Centre for Youth Policy, which acts as its secretariat and fiscal sponsor. Its governance is being set out with the founding members." },
     ],
   },
 
   join: {
     eyebrow: "Join",
-    title: "The Next Chamber Needs You In It",
-    lead: "Whether you already hold a seat or you're deciding whether to run, tell us where you are and your national chapter will be in touch.",
-    email: "join@cypn-demo.example",
-    fields: { name: "Your name", email: "Your email", city: "Your country or constituency" },
+    title: "Bring Your Chamber Into the Network",
+    lead: "If you're a young member sitting in a Caribbean parliament, tell us where you are and we'll connect you to the network and the members near you.",
+    email: "join@caribbeanypn.org",
+    fields: { name: "Your name", email: "Your email", city: "Your parliament or constituency" },
     submit: "Join the network →",
-    confirm: "✓ Draft ready in your email app — hit send and your chapter will reply.",
+    confirm: "✓ Draft ready in your email app — hit send and we'll be in touch.",
   },
 
   contact: {
     eyebrow: "Contact",
     title: "Talk to the Network",
     body: [
-      "Press enquiries, partnership ideas, or a parliament that wants to open a chapter — the regional secretariat reads everything.",
+      "Press enquiries, partnership ideas, or a young member who wants to get involved — the secretariat at the Centre for Youth Policy reads everything.",
     ],
     links: [
-      { label: "Email", val: "hello@cypn-demo.example", href: "mailto:hello@cypn-demo.example" },
-      { label: "Media kit", val: "Download the media kit", href: "#" },
+      { label: "Email", val: "hello@caribbeanypn.org", href: "mailto:hello@caribbeanypn.org" },
     ],
   },
 
