@@ -80,7 +80,7 @@ export const site = {
     items: [
       { num: "2026", label: "Founded", note: "Convened by the Centre for Youth Policy as a network for young Caribbean parliamentarians." },
       { num: "Under 40", label: "Who it's for", note: "Membership is open to sitting members of parliament under forty." },
-      { num: "15", label: "Member states", note: "The CARICOM parliaments the network is being built across." },
+      { num: "15", label: "Member states", note: "The Caribbean parliaments the network is being built across." },
     ],
   },
 
